@@ -3,7 +3,7 @@
 
 <head>
     <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
-    <title>实验二-03</title>
+    <title>Chap2 Demo Tessellation </title>
     <script id="vertex-shader" type="x-shader/x-vertex">
 	attribute vec4 vPosition;
 	void main(){
@@ -22,16 +22,21 @@
     <script type="text/javascript" src="../js/common/initShaders.js"></script>
     <script type="text/javascript" src="../js/common/gl-matrix-min.js"></script>
 
-    <script type="text/javascript" src="../js/ch02/gasket-triangles-2.js"></script>
+    <script type="text/javascript" src="../js/ch02/triangle-tessa.js"></script>
 </head>
 
-<body onload="initTriangles()">
-    <div align="center" style="margin-top: 120px">
-        <canvas id="gl-canvas" width="512" height="512">你的浏览器不支持HTML5 canvas元素</canvas><br><br>
-        请输入0~7的数字   <input type="text" id="weihe" value="0"/>
-        <input type="button" onclick="draw()" value="绘制"/>
-        <input type="button" onclick="start()" value="自动播放"/>
-    </div>
+<body>
+    <h2>Triangle Tessellation</h2>
+	<label for="subdivision-level">剖分层次（0-7）：</label>
+	    <input type="number" id="subdivision-level" min="0" max="7" value="0">
+		
+	   
+		
+		<label for="subdivision-level">角度：</label>
+		 <input type="number" id="Angle" min="0" max="180" value="0">
+		 <input type="number" id="twist0" min="0" max="1" value="1">
+	    <button id="draw-button">绘制</button>
+    <canvas id="gl-canvas" width="600" height="600">你的浏览器不支持HTML5 canvas元素</canvas>
 </body>
 
 </html>

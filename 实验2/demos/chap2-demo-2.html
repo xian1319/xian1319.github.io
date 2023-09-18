@@ -3,7 +3,7 @@
 
 <head>
     <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
-    <title>实验二-02</title>
+    <title>Chap2 Demo</title>
     <script id="vertex-shader" type="x-shader/x-vertex">
 	attribute vec3 vPosition;
 	attribute vec3 vColor;
@@ -30,12 +30,14 @@
     <script type="text/javascript" src="../js/ch02/gasket-3d.js"></script>
 </head>
 
-<body onload="init()">
-    <div align="center" style="margin-top: 120px">
-        <canvas id="gl-canvas" width="512" height="512">你的浏览器不支持HTML5 canvas元素</canvas><br><br>
-        请输入0~7的数字   <input type="text" id="weihe" value="0"/>
-        <input type="button" onclick="init()" value="绘制"/>
-    </div>
+<body>
+    <h2>Sierpinski Gasket in 3D</h2>
+	
+	<label for="subdivision-level">剖分层次（0-7）：</label>
+	    <input type="number" id="subdivision-level" min="0" max="7" value="1">
+	    <button id="draw-button">绘制</button>
+		
+    <canvas id="gl-canvas" width="512" height="512">你的浏览器不支持HTML5 canvas元素</canvas>
 </body>
 
 </html>

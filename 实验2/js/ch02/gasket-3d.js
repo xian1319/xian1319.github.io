@@ -8,13 +8,11 @@ var canvas;
 var points = [];
 var colors = [];
 
-var numTimesToSubdivide;
+var numTimesToSubdivide = 3;
 
-function init() {
-    points = [];
-    colors = [];
+window.onload = function init() {
     canvas = document.getElementById("gl-canvas");
-    numTimesToSubdivide = parseInt(document.getElementById("weihe").value);
+
     gl = WebGLUtils.setupWebGL(canvas);
     if (!gl) {
         alert("WebGL isn't available");
@@ -45,7 +43,20 @@ function init() {
     // vec3.set(w, vertices[9], vertices[10], vertices[11]);
     var w = vec3.fromValues( vertices[9], vertices[10], vertices[11] );
 
-    divideTetra(t, u, v, w, numTimesToSubdivide);
+
+
+
+
+
+   var drawButton = document.getElementById("draw-button");
+       drawButton.addEventListener("click", function () {
+		   
+		   points = [];
+           // 获取输入框中的剖分层次值
+           var subdivisionLevel = parseInt(document.getElementById("subdivision-level").value);
+   
+               numTimesToSubdivide = subdivisionLevel;  
+	divideTetra(t, u, v, w, numTimesToSubdivide);
 
     // configure webgl
     gl.viewport(0, 0, canvas.width, canvas.height);
@@ -77,7 +88,7 @@ function init() {
     gl.vertexAttribPointer(vColor, 3, gl.FLOAT, false, 0, 0);
     gl.enableVertexAttribArray(vColor);
 
-    render();
+    render();  });
 };
 
 function triangle(a, b, c, color) {
